@@ -133,6 +133,60 @@ npm run build
 npm start
 ```
 
+## 🚀 Deployment (anshulsingh.me)
+
+This project is deployed at **[anshulsingh.me](https://anshulsingh.me)** via [Vercel](https://vercel.com).
+
+### One-Click Deploy
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/anshu1209ol/EcoquestPro)
+
+### Manual Vercel Deployment
+
+1. **Install the Vercel CLI:**
+   ```bash
+   npm install -g vercel
+   ```
+
+2. **Log in to Vercel:**
+   ```bash
+   vercel login
+   ```
+
+3. **Deploy the project:**
+   ```bash
+   vercel --prod
+   ```
+
+4. **Connect your custom domain** (`anshulsingh.me`):
+   - Go to your [Vercel Dashboard](https://vercel.com/dashboard)
+   - Select the project → **Settings** → **Domains**
+   - Add `anshulsingh.me` and follow the DNS instructions
+   - Point your domain's DNS to Vercel:
+     - Add an **A record**: `@` → `76.76.21.21`
+     - Add a **CNAME record**: `www` → `cname.vercel-dns.com`
+
+5. **Add environment variables** in Vercel Dashboard → Settings → Environment Variables:
+   | Variable | Description |
+   |---|---|
+   | `GEMINI_API_KEY` | Google Gemini AI API key |
+   | `NEXT_PUBLIC_FIREBASE_API_KEY` | Firebase API key |
+   | `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN` | Firebase Auth domain |
+   | `NEXT_PUBLIC_FIREBASE_PROJECT_ID` | Firebase project ID |
+   | `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET` | Firebase storage bucket |
+   | `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID` | Firebase messaging sender ID |
+   | `NEXT_PUBLIC_FIREBASE_APP_ID` | Firebase app ID |
+
+### Automated CI/CD
+
+Every push to the `main` branch automatically deploys to production via GitHub Actions. Pull requests get preview deployments.
+
+To enable automated deployment, add these secrets to your GitHub repository (**Settings → Secrets and variables → Actions**):
+- `VERCEL_TOKEN` — from [Vercel Account Settings → Tokens](https://vercel.com/account/tokens)
+- `VERCEL_ORG_ID` — from `.vercel/project.json` after running `vercel` locally once
+- `VERCEL_PROJECT_ID` — from `.vercel/project.json` after running `vercel` locally once
+- All Firebase and Gemini environment variables listed above
+
 ## 📝 Notes
 
 - This is a **frontend application** with AI integration
